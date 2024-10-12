@@ -1,16 +1,14 @@
 ---
-
+import { CldUploadWidget } from "astro-cloudinary"
+import Layout from "../layouts/Layout.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Terror makeup generator">
+	<main class="py-4 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+		<h1 class="mb-4 text-4xl font-extrabold text-slate-800 md:text-5xl lg:text-6xl">Terror Makeup Generator</h1>
+		<p class="mb-8 text-lg font-normal text-slate-600 lg:text-xl sm:px-16 lg:px-48">An AI-powered tool that transforms your face into spooky Halloween makeup styles.</p>
+		<CldUploadWidget uploadPreset="upload-unsigned-images">
+			<button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">Upload your photo</button>
+		</CldUploadWidget>
+	</main>
+</Layout>
