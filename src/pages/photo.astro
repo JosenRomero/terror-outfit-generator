@@ -18,7 +18,7 @@ const url = getCldImageUrl({ src: id })
     <h5 class="mb-1 text-xl font-medium text-slate-800">Choose an option</h5>
     <span class="text-sm text-slate-500">Do you want to look like a vampire or something truly terrifying?</span>
     <MakeupOptions />
-    <input id="box"  class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 mt-7" type="text" placeholder="" />
+    <input id="box"  class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 mt-7" type="text" placeholder="a darkness freddy krueger" />
     <button id="btn" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2 mt-7">Generate</button>
   </div>
 </Principal>
@@ -26,11 +26,12 @@ const url = getCldImageUrl({ src: id })
 <script>
 
   import { getCldImageUrl } from "astro-cloudinary/helpers"
+  import { navigate } from 'astro:transitions/client'
 
   const id = document.querySelector("#info")?.getAttribute("data-id") ?? ""
   const options = document.querySelector("#options") as HTMLSelectElement
   const box = document.querySelector("#box") as HTMLInputElement
-  const btn = document.querySelector("#btn")
+  const btn = document.querySelector("#btn") as HTMLButtonElement
 
   let customOption: boolean = false
 
@@ -47,7 +48,7 @@ const url = getCldImageUrl({ src: id })
 
   })
 
-  btn?.addEventListener("click", (e) => {
+  btn.addEventListener("click", (e) => {
 
     if (customOption && box.value !== "" || !customOption) {
 
@@ -60,7 +61,7 @@ const url = getCldImageUrl({ src: id })
         extract: 'face'
       })
 
-      console.log(url)
+      navigate(`/result?img=${url}`)
     }
 
   })

@@ -1,0 +1,30 @@
+---
+import Principal from "../layouts/Principal.astro"
+import Loader from "../components/Loader.astro"
+
+const { searchParams } = Astro.url
+
+const img = searchParams.get("img")
+
+if (img == null) return Astro.redirect("/")
+
+---
+
+<Principal title="Result">
+  <div class="flex flex-col items-center">
+    <img id="img" src={img} class="w-96 h-96 mb-3 rounded-3xl shadow-lg hidden" alt="result" />
+    <Loader />
+  </div>
+</Principal>
+
+<script>
+
+  const img = document.querySelector("#img") as HTMLButtonElement
+  const loader = document.querySelector("#loader") as HTMLElement
+
+  img.addEventListener("load", () => {
+    img.classList.remove("hidden")
+    loader.classList.add("hidden")
+  })
+
+</script>
