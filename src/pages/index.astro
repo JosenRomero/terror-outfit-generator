@@ -1,6 +1,7 @@
 ---
 import { CldUploadWidget } from "astro-cloudinary"
 import Principal from "../layouts/Principal.astro"
+import ExamplesGallery from "../components/ExamplesGallery.astro"
 ---
 
 <Principal title="Terror makeup generator">
@@ -15,6 +16,7 @@ import Principal from "../layouts/Principal.astro"
 	>
 		<button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">Upload your photo</button>
 	</CldUploadWidget>
+	<ExamplesGallery />
 </Principal>
 
 <script>

@@ -1,0 +1,25 @@
+---
+import { examples } from "../data"
+import Principal from "../layouts/Principal.astro"
+
+const { searchParams } = Astro.url
+
+const id = searchParams.get("id")
+
+if (id == null) return Astro.redirect("/")
+
+const currentExample = examples[Number(id)]
+---
+
+<Principal title="Example result">
+  <div class="flex flex-col mb-4">
+    <p>Name: <span class="font-semibold">{currentExample.name}</span></p>
+    <p>Option: {currentExample.option}</p>
+  </div>
+  <div class="flex flex-row gap-4 justify-center">
+    <img src={currentExample.original} class="w-96 h-96 mb-3 rounded-3xl shadow-lg" alt={currentExample.name} />
+    <img src={currentExample.modified} class="w-96 h-96 mb-3 rounded-3xl shadow-lg" alt={currentExample.name} />
+  </div>
+  { (currentExample.option === "custom option") ? <p class="my-4">Prompt: {currentExample.prompt}</p> : <></> }
+
+</Principal>
