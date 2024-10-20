@@ -11,9 +11,12 @@ if (img == null) return Astro.redirect("/")
 ---
 
 <Principal title="Result">
-  <div class="flex flex-col items-center">
-    <img id="img" src={img} class="w-96 h-96 mb-3 rounded-3xl shadow-lg hidden" alt="result" />
-    <Loader />
+  <div class="mt-20 text-center">
+    <p class="text-3xl sm:text-6xl tracking-tight font-bold">Ta-da! Your Halloween Outfit</p>
+    <div class="flex flex-col items-center mt-10">
+      <img id="img" src={img} class="w-96 h-96 mb-3 rounded-3xl shadow-lg hidden" alt="result" />
+      <Loader />
+    </div>
   </div>
 </Principal>
 
