@@ -13,10 +13,11 @@ const url = getCldImageUrl({ src: id })
 ---
 
 <Principal title="Photo">
-  <div id="info" data-id={id} class="flex flex-col items-center pb-10">
+  <div id="info" data-id={id} class="flex flex-col items-center mt-20">
+    <p class="text-3xl sm:text-6xl tracking-tight font-bold">Create Your Halloween Outfit</p>
+    <p class="mt-6 mb-10 text-lg text-slate-600">Do you want to look like a vampire or something truly terrifying?</p>
     <img class="w-52 h-52 mb-3 rounded-3xl shadow-lg" src={url} alt="image" />
     <h5 class="mb-1 text-xl font-medium text-slate-800">Choose an option</h5>
-    <span class="text-sm text-slate-500">Do you want to look like a vampire or something truly terrifying?</span>
     <MakeupOptions />
     <input id="box"  class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 mt-7" type="text" placeholder="a darkness freddy krueger" />
     <button id="btn" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2 mt-7">Generate</button>
