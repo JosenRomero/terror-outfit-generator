@@ -10,7 +10,7 @@ import type { ImageItem } from "../types/ImageItem"
   <div class="mt-20 text-center">
     <p class="text-3xl sm:text-6xl tracking-tight font-bold">Example Showcase</p>
     <p class="mt-6 text-lg text-slate-600">A collection of halloween outfits.</p>
-    <div class="mt-20 flex flex-col md:flex-row gap-3 justify-center">
+    <div class="mt-20 flex flex-col md:flex-row md:flex-wrap gap-3 justify-center">
       { examples.map((item: ImageItem, index: number) => 
         <div class="bg-white border border-gray-200 rounded-lg shadow">
           <a href={`example?id=${index}`}>
