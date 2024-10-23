@@ -1,0 +1,32 @@
+---
+import Bone from "../icons/bone.astro"
+import Ghost from "../icons/ghost.astro"
+import Pumpkin from "../icons/pumpkin.astro"
+import Skull from "../icons/skull.astro"
+import Spider from "../icons/spider.astro"
+
+---
+<div class="w-full flex flex-row justify-between bottom-2 fixed bg_icon">
+  <Bone class:list="w-11 h-11 opacity-10 cursor-pointer" />
+  <Ghost class:list="w-11 h-11 opacity-10 cursor-pointer" />
+  <Pumpkin class:list="w-11 h-11 opacity-10 cursor-pointer" />
+  <Skull class:list="w-11 h-11 opacity-10 cursor-pointer" />
+  <Spider class:list="w-11 h-11 opacity-10 cursor-pointer" />
+</div>
+
+<script>
+
+  const images = document.querySelectorAll(".bg_icon > svg")
+
+  images.forEach((img) => {
+
+    img.addEventListener("click", (e) => {
+
+      let randomColor = Math.floor(Math.random()*16777215).toString(16)
+      img.setAttribute("style", `color: #${randomColor}; opacity: 100%`)
+
+    })
+
+  })
+
+</script>
